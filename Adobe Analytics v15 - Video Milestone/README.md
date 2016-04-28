@@ -39,3 +39,10 @@ To be able to implement Video Milestone:
 ![admin report suite](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Admin%20-%20Report%20Suite.png)
 * Select your report suite then select *Edit Settings* then *Video Management* then *Video reporting*
 ![Video Reporting](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Video%20Reporting.png)
+* Follow the steps in the interface and make to select **Use Solution Variables**
+
+Once you have completed all of the steps and saved the following will happen:
+* A set of backend processing rules will be created to automatically map Video reserved variables to the video reports
+* In the menu you should now see Video
+
+### Second Step: 
