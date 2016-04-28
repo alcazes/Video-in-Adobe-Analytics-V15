@@ -36,4 +36,4 @@ To be able to implement Video Milestone:
 ### First Step: Configure Video reporting in Adobe Analytics V15
 
 * Go to Admin >> Report suite
-![admin report suite](/doc/images/Admin%20-%20Report%20Suite.png)
+![admin report suite](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Admin%20-%20Report%20Suite.png)
