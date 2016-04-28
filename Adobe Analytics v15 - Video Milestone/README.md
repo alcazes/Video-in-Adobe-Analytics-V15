@@ -38,3 +38,4 @@ To be able to implement Video Milestone:
 * Go to Admin >> Report suite
 ![admin report suite](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Admin%20-%20Report%20Suite.png)
 * Select your report suite then select *Edit Settings* then *Video Management* then *Video reporting*
+![Video Reporting](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Admin%20-%20Report%20Suite.png)
