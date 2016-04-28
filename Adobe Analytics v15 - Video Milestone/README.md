@@ -13,15 +13,15 @@ SiteCatalyst 14, ExcelClient, and a number of other legacy components will reach
 This means that all access to the SiteCatalyst 14 user interface and several related features will be removed. 
 
 * Video Milestone implementation enabled only with V14 implementation steps
-..* All legacy Video Milestone implementation should still work once SiteCatalyst 14 is sunset.
-..* The legacy Video Milestone implementation using eVars and events allocation will still be valid, however it is advised to migrate to solution variables implementation.
+  * All legacy Video Milestone implementation should still work once SiteCatalyst 14 is sunset.
+  * The legacy Video Milestone implementation using eVars and events allocation will still be valid, however it is advised to migrate to solution variables implementation.
 * All new implementation should be done using Video reporting settings in Adobe Analytics V15
-..* It is advised to use the solution variables implementation, this will save you several eVars and events.
+  * It is advised to use the solution variables implementation, this will save you several eVars and events.
 * Video Milestone should not be used if you plan to implement a very heavy/detailed video tracking.
-..* You should contact your account manager to discuss the terms of the contract to use Video heartbeat
-..* Video heartbeat tracking will be less expensive for heavy/detailed video tracking
+  * You should contact your account manager to discuss the terms of the contract to use Video heartbeat
+  * Video heartbeat tracking will be less expensive for heavy/detailed video tracking
 * If you only plan to track the fact the customer simply interacted with your video but have no plan to gather details then do not use Video Milestone nor Video heartbeat tracking
-..* Instead simply use custom link tracking to send details about video interaction
+  * Instead simply use custom link tracking to send details about video interaction
 
 ## Requirements
 
@@ -36,4 +36,4 @@ To be able to implement Video Milestone:
 ### First Step: Configure Video reporting in Adobe Analytics V15
 
 * Go to Admin >> Report suite
-![admin report suite](/doc/images/Admin - Report Suite.png)
+![admin report suite](/doc/images/Admin%20-%20Report%20Suite.png)
