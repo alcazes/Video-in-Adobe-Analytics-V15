@@ -15,8 +15,11 @@ Steps described [here](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/b
 #### Download and add Media Module
 
 1. Go to Code Manager
+![code manager](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Code%20manager.png)
 2. Download the zip file for the New JS AppMeasurement library
-3. ExtractMedia module library
+![AppMeasurement zip](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/AppMeasurement%20js.png)
+3. Extract Media module library
+![Media Module](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Media%20Module.png)
 4. Add Media Module Library to your AppMeasurement.js file
 ```javascript
 code to add here
