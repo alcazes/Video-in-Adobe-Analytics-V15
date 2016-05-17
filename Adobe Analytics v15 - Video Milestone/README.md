@@ -45,4 +45,8 @@ Once you have completed all of the steps and saved the following will happen:
 * A set of backend processing rules will be created to automatically map Video reserved variables to the video reports
 * In the menu you should now see Video
 
-### Second Step: 
+### Second Step: Configure the Media Module settings
+
+* Media Module Configuration in JS implementation
+* Media Module Configuration in Android SDK 4.x implementation
+* Media Module Configuration in IOS SDK 4.x implementation
