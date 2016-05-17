@@ -3,7 +3,7 @@
 ## Video Milestone and Video Players
 
 Video Milestone implementation logic is exactly the same for all Media/Video players.
-This means that the same settings will be used each time and same Video reporting parameters will be enabled in Adobe Analytics V15
+This means that the same settings will be used each time and same Video reporting parameters will be enabled in Adobe Analytics V15.
 This also means that the same Video Milestone method will be used and they will always be used in the same established order.
 Using the steps below, you should be able to implement any existing and future video players.
 
