@@ -195,3 +195,10 @@ If the methods are called out of order then the video tracking will not work suc
 
 ![Media Method Workflow](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Media%20Method%20Workflow.png)
 
+* When the video is opened/started for the first time, Media Open will be called followed by Media Play
+* Every single time the video is played, the Media Play needs to be called. (Make sure to specify the correct offset of the video)
+* Every single time the video is stopped, the Media Stop needs to be called. (Make sure to specify the correct offset of the video)
+* Once the video is completed, call Media Stop followed by Media Close
+* Media Open and Media Close will send an image request to Adobe Analytics. Media Play and Media Stop do not send an image request to Adobe Analytics. If you want send an image request when these methods are called, you need to use Media Monitor.
+
+[TO CONTINUE...]
