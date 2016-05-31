@@ -59,8 +59,8 @@ As we have enabled Video reporting using Solution Variables in the previous step
 
 There will be:
 * No contextData variable mapping
-⋅⋅* We will use default Video Milestone Context Data reserved variables. These reserved variables are similar to the one sent with Video Heartbeat Tracking.
+  * We will use default Video Milestone Context Data reserved variables. These reserved variables are similar to the one sent with Video Heartbeat Tracking.
 * As we will not use variable mapping, there will not be any processing rules created by default to map our default milestone events (10%, 25%, 50%, 75%, 95%).
-⋅⋅* We will bypass this tiny challenge by simply using Media Monitor to map milestone events to default percentage progress markers
+  * We will bypass this tiny challenge by simply using Media Monitor to map milestone events to default percentage progress markers
 
 ### Third Step: Call Media Module methods at the right time
