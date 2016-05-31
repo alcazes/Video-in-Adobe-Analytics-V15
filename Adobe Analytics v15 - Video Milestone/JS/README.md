@@ -62,6 +62,7 @@ There will be:
   * We will use default Video Milestone Context Data reserved variables. These reserved variables are similar to the one sent with Video Heartbeat Tracking.
 * As we will not use variable mapping, there will not be any processing rules created by default to map our default milestone events (10%, 25%, 50%, 75%, 95%).
   * We will bypass this tiny challenge by simply using Media Monitor to map milestone events to default percentage progress markers
+
 ![Default percentage progress markers](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Default%20percentage%20marker.png)
 
   
