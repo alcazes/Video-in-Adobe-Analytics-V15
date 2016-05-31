@@ -8,7 +8,7 @@ Please make sure the [prerequisites](https://github.com/alcazes/Video-in-Adobe-A
 
 ### First Step: Configure Video reporting in Adobe Analytics V15
 
-Steps described [here](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/README.md).
+Steps described [here](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/README.md)
 
 ### Second Step: Configure the Media Module settings
 
@@ -62,5 +62,135 @@ There will be:
   * We will use default Video Milestone Context Data reserved variables. These reserved variables are similar to the one sent with Video Heartbeat Tracking.
 * As we will not use variable mapping, there will not be any processing rules created by default to map our default milestone events (10%, 25%, 50%, 75%, 95%).
   * We will bypass this tiny challenge by simply using Media Monitor to map milestone events to default percentage progress markers
+![Default percentage progress markers](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Default%20percentage%20marker.png)
+
+  
+````javascript
+ /***** MEDIA MODULE CONFIGURATION FOR MILESTONE TRACKING START*****/
+ 
+s.loadModule("Media")
+s.Media.onLoad = function(s,m) {
+    s.Media.autoTrack= false;
+    /*Track Milestone 10%, 25%, 50%, 75%, 95%
+    * Delete unwanted milestone if necessary
+    */
+    s.Media.trackMilestones="10,25,50,75,95";
+    s.Media.playerName="My Media Player";
+    s.Media.segmentByMilestones = true;
+    s.Media.trackUsingContextData = true;
+    /* Add reserved context data variables as needed to populate default metrics
+    *   a.media.progress10, a.media.progress25, a.media.progress50 ,a.media.progress75, a.media.progress95
+    */
+    s.Media.trackVars="contextData.a.media.progress10,contextData.a.media.progress25,contextData.a.media.progress50,contextData.a.media.progress75,contextData.a.media.progress95";
+};
+ 
+/*
+* USE MEDIA MONITOR TO SEND THE ADDITIONAL a.media.progressXX variables: needed as no processing rules are created by default to handle media.milestone
+*/
+ 
+s.Media.monitor = function (s,media){
+    //If MILESTONE EVENT
+    if(media.event=="MILESTONE") {
+        //Reset Variables
+        s.contextData['a.media.progress10'] = s.contextData['a.media.progress25'] = s.contextData['a.media.progress50'] = s.contextData['a.media.progress75'] = s.contextData['a.media.progress95'] = '';
+        //Check which milestone has been reached: media.milestone
+        switch (media.milestone) {
+            //When the 10% milestone is reached add a.media.progress10 to the Adobe Analytics request
+            case 10:
+                s.contextData['a.media.progress10'] = true;
+                s.Media.track(media.name);
+                break;
+            //When the 25% milestone is reached add a.media.progress25 to the Adobe Analytics request
+            case 25:
+                s.contextData['a.media.progress25'] = true;
+                s.Media.track(media.name);
+                break;
+            //When the 50% milestone is reached add a.media.progress50 to the Adobe Analytics request
+            case 50:
+                s.contextData['a.media.progress50'] = true;
+                s.Media.track(media.name);
+                break;
+            //When the 75% milestone is reached add a.media.progress75 to the Adobe Analytics request
+            case 75:
+                s.contextData['a.media.progress75'] = true;
+                s.Media.track(media.name);
+                break;
+            //When the 95% milestone is reached add a.media.progress95 to the Adobe Analytics request
+            case 95:
+                s.contextData['a.media.progress95'] = true;
+                s.Media.track(media.name);
+                break;
+            //When any other % milestone is reached do nothing
+            default:
+                break;
+        }
+    }
+     
+}
+/***** MEDIA MODULE CONFIGURATION FOR MILESTONE TRACKING END*****/
+````
+ 
+ * If you decide to use unconventional milestones like 15% or 27% or 51% then the you will need to use a part of contextDataMapping.
+ 
+````javascript
+s.loadModule("Media")
+s.Media.onLoad = function(s,m) {
+    s.Media.autoTrack= false;
+	//Track 15,27,51 percentage progress
+    s.Media.trackMilestones="15,27,51";
+    s.Media.playerName="My Media Player";
+    s.Media.segmentByMilestones = true;
+    s.Media.trackUsingContextData = true;
+    /*
+    * Specify the custom events to be sent with Media calls
+    */
+    s.Media.trackEvents="event1,event2,event3";
+    /*
+    * Map the custom events to the % milestones
+    */
+    s.Media.contextDataMapping = {
+        "a.media.milestones":{
+            15:"event1",
+            27:"event2",
+            51:"event3"
+        }
+    }
+};
+````
+
+* You will need to use a similar code if you decide to use seconds to track milestones instead or percentages. For a more granular tracking you should consider using Video Heartbeat!!!
+
+````javascript
+s.loadModule("Media")
+s.Media.onLoad = function(s,m) {
+    s.Media.autoTrack= false;
+	//Track by seconds milestones
+    s.Media.trackOffsetMilestones = "5,10,15";
+    s.Media.playerName="My Media Player";
+    s.Media.segmentByMilestones = true;
+    s.Media.trackUsingContextData = true;
+    /*
+    * Specify the custom events to be sent with Media calls
+    */
+    s.Media.trackEvents="event1,event2,event3";
+    /*
+    * Map the custom events to the seconds milestones
+    */
+    s.Media.contextDataMapping = {
+        "a.media.offsetMilestones":{
+            5:"event1",
+            10:"event2",
+            15:"event3"
+        }
+    }
+};
+````
 
 ### Third Step: Call Media Module methods at the right time
+
+Once you have configured the Media Module settings successfully you will need to call the Media Methods at the correct time. 
+The Media Methods workflow is identical in any Video Players. The same methods will have to be called in the same order. 
+If the methods are called out of order then the video tracking will not work successfully and/or the data sent to Adobe Analytics will be incorrect.
+
+![Media Method Workflow](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/blob/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/doc/images/Media%20Method%20Workflow.png)
+
