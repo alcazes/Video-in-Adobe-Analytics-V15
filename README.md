@@ -2,6 +2,8 @@
 
 Describe how to implement Video tracking using Adobe Analytics v15. 
 
+[Check out the wiki](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/wiki)
+
 ## Video Milestone progress
 
 - [ ] Create the global README.md file for Video Milestone
