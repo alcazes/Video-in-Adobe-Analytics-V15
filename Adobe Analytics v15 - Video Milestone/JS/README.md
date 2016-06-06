@@ -201,4 +201,124 @@ If the methods are called out of order then the video tracking will not work suc
 * Once the video is completed, call Media Stop followed by Media Close
 * Media Open and Media Close will send an image request to Adobe Analytics. Media Play and Media Stop do not send an image request to Adobe Analytics. If you want send an image request when these methods are called, you need to use Media Monitor.
 
-[TO CONTINUE...]
+Here is a table that summarize what you need to call and when you use manual tagging.
+
+| Function to Call | When To call it |How often to call per Video View | Send Image reuest to Adobe Analytics |
+--- | --- | --- | ---- |
+| Media Open | Video Load/First Play | 1 | YES |
+| Media Play | Any time the video begins to play, resume, buffer completed , scrubber release or segment change .... | As often as needed | NO |
+| Media Stop | Any Time the video stops, pauses, buffers, scrubber grab or segment changes | As often as needed | NO |
+|Media Close | Video Complete | 1 | Yes |
+
+Note: If you are using video ad tracking, you will also need to use the corresponding video ad open, video ad play, video ad stop and video ad complete. These methods follow the same logic as default media methods.
+
+Every single time video is opened/started for the first time the Media Open methods need to be called. **Media Open will always be followed by Media Start methods.**
+
+## Media Open
+
+**Method :**
+
+Media.open 
+
+**Syntax:**
+````javascript
+s.Media.open(mediaName,mediaLength,mediaPlayerName)
+````
+ 
+**Description:**
+Prepares the media module to collect video tracking data. This method takes the following parameters:
+* mediaName: (required) The name of the video as you want it to appear in video reports.
+* mediaLength: (required) The length of the video in seconds.
+* mediaPlayerName: (required) The name of the media player used to view the video, as you want it to appear in video reports.
+
+## Media Play
+
+Media play will be called when the video start and thereafter each time the video is playing.
+
+> Note: 
+> When the video starts the offset needs to be set to zero
+> When Media play is called at any other time that the video start, you need to specify the correct offset.
+
+**Method:**
+
+Media.play
+
+**Syntax:**
+````javascript
+s.Media.play(name,offset,segmentNum,segment, segmentLength)
+````
+
+**Description:**
+Call this method anytime a video starts playing. When using manual video measurement, you can provide the current segment data when sending video measurement data.
+
+If your player changes from one segment to another, for whatever reason, you should call Media.stop before calling Media.play again for the new segment.
+
+This method takes the following parameters:
+* mediaName: The name of the video. This must match the name used in Media.open.
+* mediaOffset: The number of seconds into the video that play begins. Specify the offset based on the video starting at second zero. If your media player tracks using milliseconds, make sure the value is converted to seconds before you call Media.play.
+* segmentNum: (Optional) The current segment number, which marketing reports use to order the display of segments in reports. The segmentNum parameter must be greater than zero.
+* segment: (Optional) The current segment name.
+* segmentLength: (Optional) The current segment length, in seconds. 
+
+**Example:**
+
+* Video Start
+````javascript
+s.Media.play(name,0);
+````
+* Other Than Video Start
+````javascript
+s.Media.play(name,offset);
+````
+
+## Media Stop
+
+Media Stop need to be called each time the video is stopped for any reasons. It should always be called when the video is completed just before the Media Close. The correct offset when it stops needs to be provided.
+
+**Method:**
+
+Media.stop
+
+**Syntax:**
+````javascript
+s.Media.stop(mediaName,mediaOffset)
+````
+
+**Description:**
+Tracks a stop event (stop, pause, etc.) for the specified video. This method takes the following parameters:
+* mediaName: The name of the video. This must match the name used in Media.open.
+* mediaOffset: The number of seconds into the video that the stop or pause event occurs. Specify the offset based on the video starting at second zero. 
+
+## Media Close
+
+Media close should be called when the video is completed. It should be called just after Media Stop. Once called, the video tracking stops and a complete event is sent to Adobe Analytics.
+
+**Method:**
+
+Media.close
+
+**Syntax:**
+````javascript
+s.Media.close(mediaName)
+````
+
+**Description:**
+
+Ends video data collection and sends information to Adobe data collection servers. Call this method at the end of the video. This method takes the following parameters:
+* mediaName: The name of the video. This must match the name used in Media.open. 
+
+## Media Monitor
+
+During your video implementation you might feel the need to send additional data with your video calls. For example if your app or website show videos about a specific series, you might want to send the series number and the episode number in the Adobe Analytics call. 
+One of the solution would be to concatenate this data into one sting and send it as the video name and then use classification to classify the data in the correct reports, but due to the fact that the video variable is limited to 255 char it might not be possible. You will then need to send these data in separate eVars.
+To do so you can use Media monitor, which allows you to send additional variables and events with your video adobe analytics server calls. 
+For a website implementation using JavaScript, you should place the Media Monitor code in the same file as the media module (s_code.js or AppMeasurement.js).
+
+Media Monitor is used in conjunction with:
+* Media.trackVars: to add the additional variables being sent
+* Media.trackEvents: to add the additional events being sent
+* Media.track: used for media calls that are not media open or media close.
+* Doc: https://marketing.adobe.com/resources/help/en_US/sc/appmeasurement/video/video_mediamonitor.html
+
+> Note:
+> As per [2.1: Adobe Analytics V15 and Video Milestone Implementation: Steps for JS player implementation Configure Media Module](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/wiki/2.1%5D-Adobe-Analytics-V15-and-Video-Milestone-Implementation:-Steps-for-JS-player-implementation---Configure-Media-Module) you would have noticed that we are already using Media.monitor in our implementation
