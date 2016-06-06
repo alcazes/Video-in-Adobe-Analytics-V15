@@ -50,3 +50,7 @@ Once you have completed all of the steps and saved the following will happen:
 * Media Module Configuration in [JS implementation](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/tree/master/Adobe%20Analytics%20v15%20-%20Video%20Milestone/JS)
 * Media Module Configuration in Android SDK 4.x implementation
 * Media Module Configuration in IOS SDK 4.x implementation
+
+### Third Step: Call Media Module methods at the right time
+
+[3. Adobe Analytics V15 and Video Milestone Implementation: Call Media Module methods at the right time](https://github.com/alcazes/Video-in-Adobe-Analytics-V15/wiki/3.%5D-Adobe-Analytics-V15-and-Video-Milestone-Implementation:-Call-Media-Module-methods-at-the-right-time)
