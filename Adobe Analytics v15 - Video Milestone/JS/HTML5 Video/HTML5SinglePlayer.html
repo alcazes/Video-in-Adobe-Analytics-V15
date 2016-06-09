@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML5 Video Milestone Single Player</title>
+		<script>
+		dataLayer = {
+			"pagename":"HTML5 Video Milestone Single Player",
+			"videoDetails" : {
+				"player" : "HTML5 Video Milestone Single Player"
+			}
+		}
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../AdobeAnalyticsJS/VisitorAPI.js"></script>
+		<script language="JavaScript" type="text/javascript" src="../AdobeAnalyticsJS/AppMeasurement.js"></script>
+		<script language="JavaScript" type="text/javascript" src="js/HTML5SinglePlayerdelegate.js"></script>
+	</head>
+	<body>
+		<!--Create the video-->
+		<video id="videoasset" controls preload='metadata' height="390" width="640" name="Test HTML5 Single Player Video">
+			<source id='ogv'
+			src="../videos/Our Story in 1 Minute.mp4"
+			type='video/mp4' >
+			<p>Your user agent does not support the HTML5 Video element.</p>
+		</video>
+		
+		<script>
+			//Add event listeners
+			myvideo = document.getElementById('videoasset');
+			myvideo.addEventListener('play',myHandler,false);
+			myvideo.addEventListener('seeked',myHandler,false);
+			myvideo.addEventListener('seeking',myHandler,false);
+			myvideo.addEventListener('pause',myHandler,false);
+			myvideo.addEventListener('ended',myHandler,false);
+		</script>
+		
+		<script language="JavaScript" type="text/javascript">
+			//Send Adobe Analytics pageview call s.t()
+			/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+			var s_code=s.t();if(s_code)document.write(s_code)
+		</script>
+		<script language="JavaScript" type="text/javascript">
+			if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+		</script>
+	</body>
+  
+  
+</html>
