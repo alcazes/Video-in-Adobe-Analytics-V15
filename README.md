@@ -6,7 +6,7 @@ Describe how to implement Video tracking using Adobe Analytics v15.
 
 ## Video Milestone progress
 
-- [ ] Create the global README.md file for Video Milestone
+- [X] Create the global README.md file for Video Milestone
 - [ ] Create folder for MOBILE
   - [ ] CREATE README.md with steps to enable Video Milestoe for Android and IOS
   - [ ] CREATE IOS Folder
