@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Youtube Video Milestone Single Player</title>
+		<script>
+		var dataLayer = {
+			"pagename" : "Youtube Video Milestone Single Player",
+			"videoDetails" : {
+				"player" : "Youtube iframe - Single player"
+			}
+		}
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../AdobeAnalyticsJS/VisitorAPI.js"></script>
+		<script language="JavaScript" type="text/javascript" src="../AdobeAnalyticsJS/AppMeasurement.js"></script>
+		<script language="JavaScript" type="text/javascript" src="js/YoutubeIframeDelegateSinglePlayer.js"></script>
+	</head>
+	<body>
+		<!--
+			//Place following code in HTML of Web page:
+			//Add id="player" to iframe tag
+			//Append &rel=0 to suppress related video end slate to YouTube embed URL
+			//Append &enablejsapi=1 to YouTube embed URL
+		-->
+	  
+		<iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/sr_EtMhM3fg?rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+		
+		<script language="JavaScript" type="text/javascript">
+			//Send Adobe Analytics pageview call s.t()
+			/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+			var s_code=s.t();if(s_code)document.write(s_code)
+		</script>
+		<script language="JavaScript" type="text/javascript">
+			if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+		</script>
+
+	</body>
+  
+  
+</html>
