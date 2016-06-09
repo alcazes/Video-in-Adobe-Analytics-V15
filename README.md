@@ -14,9 +14,9 @@ Describe how to implement Video tracking using Adobe Analytics v15.
   - [ ] CREATE ANDROID folder
   - [ ] CREATE ANDROID PLAYER Example
 - [X] CREATE JS Folder
-  - [ ] CREATE Html5 example
+  - [X] CREATE Html5 example
     - [ ] DTM HTML5 steps
-  - [ ] CREATE Youtube Iframe examples
+  - [X] CREATE Youtube Iframe examples
 	- [ ] DTM youtube iframe steps
   - [ ] CREATE Vimeo example
     - [ ] DTM Vimeo steps..
