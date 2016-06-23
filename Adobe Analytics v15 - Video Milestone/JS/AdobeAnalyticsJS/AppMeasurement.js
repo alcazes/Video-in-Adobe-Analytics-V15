@@ -84,10 +84,11 @@ s.Media.onLoad = function(s,m) {
 */
 
 s.Media.monitor = function (s,media){
+	//Reset Variables
+	s.contextData['a.media.progress10'] = s.contextData['a.media.progress25'] = s.contextData['a.media.progress50'] = s.contextData['a.media.progress75'] = s.contextData['a.media.progress95'] = '';
+	
 	//If MILESTONE EVENT
 	if(media.event=="MILESTONE") {
-		//Reset Variables
-		s.contextData['a.media.progress10'] = s.contextData['a.media.progress25'] = s.contextData['a.media.progress50'] = s.contextData['a.media.progress75'] = s.contextData['a.media.progress95'] = '';
 		//Check which milestone has been reached: media.milestone
 		switch (media.milestone) {
 			//When the 10% milestone is reached add a.media.progress10 to the Adobe Analytics request

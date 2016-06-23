@@ -1,0 +1,66 @@
+body {
+	background-color: #fff;
+}
+
+a {
+	color: #7d7d7d;
+}
+
+a:hover {
+	color: #f00;
+}
+
+section {
+	padding: 10px;
+	font: 14px Garamond, Georgia, Times New Roman, serif; 
+}
+
+header {
+}
+
+h1 {
+	font: 16px;
+}
+
+nav {
+}
+
+ul {
+	text-decoration: none;
+}
+
+ul li {
+	text-decoration: none;
+}
+
+
+    .video-js {
+      width: 300px;
+      height: 150px;
+    }
+
+    .vjs-fluid {
+      padding-top: 56.25%
+    }
+  .vjs-mouse.vjs-playlist {
+    font-size: 17px;
+    min-width: 289px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 17px 17px 0 17px;
+}
+
+.vjs-playlist {
+    font-size: 14px;
+    min-width: 238px;
+    max-width: 500px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 14px 14px 0 14px;
+}
+.vjs-playlist {
+    list-style-type: none;
+    overflow: auto;
+    position: relative;
+}
+
