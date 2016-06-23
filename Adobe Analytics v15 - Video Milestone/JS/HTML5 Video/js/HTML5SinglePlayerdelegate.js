@@ -15,7 +15,7 @@ function myHandler(e) {
 		//Call on video start
 		if (mediaOffset ==0) {
 			s.Media.open(mediaName,mediaLength,mediaPlayerName);
-			s.Media.play(mediaName,mediaOffset);
+			s.Media.play(mediaName,0);
 		} else {
 			s.Media.play(mediaName,mediaOffset);
 		}
