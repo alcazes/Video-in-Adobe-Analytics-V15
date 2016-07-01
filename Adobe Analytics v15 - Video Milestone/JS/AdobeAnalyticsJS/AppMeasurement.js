@@ -75,8 +75,9 @@ s.Media.onLoad = function(s,m) {
 	s.Media.trackUsingContextData = true;
 	/* Add reserved context data variables as needed to populate default metrics
 	*   a.media.progress10, a.media.progress25, a.media.progress50 ,a.media.progress75, a.media.progress95
+	*	a.media.friendlyname --> to populate Video Name report
 	*/
-	s.Media.trackVars="contextData.a.media.progress10,contextData.a.media.progress25,contextData.a.media.progress50,contextData.a.media.progress75,contextData.a.media.progress95";
+	s.Media.trackVars="contextData.a.media.progress10,contextData.a.media.progress25,contextData.a.media.progress50,contextData.a.media.progress75,contextData.a.media.progress95,contextData.a.media.friendlyname";
 };
 
 /*
@@ -84,8 +85,17 @@ s.Media.onLoad = function(s,m) {
 */
 
 s.Media.monitor = function (s,media){
+	
+		
 	//Reset Variables
-	s.contextData['a.media.progress10'] = s.contextData['a.media.progress25'] = s.contextData['a.media.progress50'] = s.contextData['a.media.progress75'] = s.contextData['a.media.progress95'] = '';
+	s.contextData['a.media.progress10'] = s.contextData['a.media.progress25'] = s.contextData['a.media.progress50'] = s.contextData['a.media.progress75'] = s.contextData['a.media.progress95'] = s.contextData['a.media.friendlyname'] =  '';
+	
+	s.contextData['a.media.friendlyname'] = '' //assign custom friendly name if needed
+	//if no custom friendly name
+	if(!s.contextData['a.media.friendlyname']){
+		//default to media.name
+		s.contextData['a.media.friendlyname'] = media.name;
+	}
 	
 	//If MILESTONE EVENT
 	if(media.event=="MILESTONE") {
