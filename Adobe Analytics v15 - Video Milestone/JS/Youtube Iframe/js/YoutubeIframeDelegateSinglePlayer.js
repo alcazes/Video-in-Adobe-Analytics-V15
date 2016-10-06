@@ -60,8 +60,8 @@ function onPlayerStateChange(event) {
 			var videoId = event.target.getVideoData().video_id;
 			var mediaName = videoPlayer+'|'+videoId+'|'+videoTitle;
 			console.log('mediaName on Ended: ' + mediaName);
-			console.log('mediaOffset on Ended: ' + 0);
-			mediaOffset = 0;
+			console.log('mediaOffset on Ended: ' + Math.floor(event.target.getCurrentTime()));
+			mediaOffset = Math.floor(event.target.getCurrentTime());
 			s.Media.stop(mediaName,mediaOffset);
 			s.Media.close(mediaName);
 	}
