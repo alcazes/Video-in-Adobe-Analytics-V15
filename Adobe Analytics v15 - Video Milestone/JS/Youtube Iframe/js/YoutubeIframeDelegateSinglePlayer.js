@@ -64,5 +64,6 @@ function onPlayerStateChange(event) {
 			mediaOffset = Math.floor(event.target.getCurrentTime());
 			s.Media.stop(mediaName,mediaOffset);
 			s.Media.close(mediaName);
+			mediaOffset = 0;
 	}
 }
